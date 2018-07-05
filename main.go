@@ -67,8 +67,8 @@ func runQuery(region string, q *prompb.Query, logger log.Logger) ([]*prompb.Time
 	}
 	params := map[string]interface{}{
 		"range": map[string]string{
-			"from": startTime.Format(time.RFC3339),
-			"to":   endTime.Format(time.RFC3339),
+			"from": startTime.UTC().Format(time.RFC3339),
+			"to":   endTime.UTC().Format(time.RFC3339),
 		},
 		"targets": map[string]string{
 			"target": paramTarget,
